@@ -30,7 +30,7 @@ class AuthController {
      */
     public function registerForm(): void {
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/register.php';
+        include __DIR__ . '/../../Views/register.php';
     }
 
     /**
@@ -206,7 +206,7 @@ class AuthController {
      */
     public function loginForm(): void {
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/login.php';
+        include __DIR__ . '/../../Views/login.php';
     }
 
     /**
