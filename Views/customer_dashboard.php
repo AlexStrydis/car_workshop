@@ -16,7 +16,7 @@
 <body>
 <?php include __DIR__ . '/../public/inc/header.php'; ?>
 <section class="hero-background">
-  <div class="container" style="background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+  <div class="container" style="max-width: 1000px; background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
   <?php
   require_once __DIR__ . '/../src/Models/User.php';
   use Models\User;
@@ -27,7 +27,7 @@
 
   ?>
   <header style="text-align: center; margin: 0; font-size: 1.5rem; color: #333;">
-    <h1>Πίνακας ελέγχου του χρήστη <?php echo htmlspecialchars($username); ?></h1>
+    <h1 style="padding:0 10px;">Πίνακας ελέγχου του χρήστη <?php echo htmlspecialchars($username); ?></h1>
   </header>
 
   <h1><?= date('d/m/Y') ?></h1>
