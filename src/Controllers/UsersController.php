@@ -41,7 +41,7 @@ class UsersController {
             $users = $this->userModel->search($criteria);
         }
 
-        include __DIR__ . '/../../views/users.php';
+        include __DIR__ . '/../../Views/users.php';
     }
 
     /**
@@ -81,7 +81,7 @@ class UsersController {
             exit('User not found');
         }
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/user_form.php';
+        include __DIR__ . '/../../Views/user_form.php';
     }
 
     /**

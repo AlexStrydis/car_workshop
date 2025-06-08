@@ -20,5 +20,5 @@ if ($user) {
 
 $role = $_SESSION['role'];
 
-include __DIR__ . '/../views/dashboard.php';
+include __DIR__ . '/../Views/dashboard.php';
 

@@ -72,7 +72,7 @@ class CarController {
         $token = generateCsrfToken();
 
         // Φορτώνουμε το view
-        include __DIR__ . '/../../views/cars.php';
+        include __DIR__ . '/../../Views/cars.php';
     }
 
     /**
@@ -83,7 +83,7 @@ class CarController {
         requireRole('secretary','customer');
 
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/car_form.php';
+        include __DIR__ . '/../../Views/car_form.php';
     }
 
     /**
@@ -162,7 +162,7 @@ class CarController {
             exit('Not found');
         }
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/car_form.php';
+        include __DIR__ . '/../../Views/car_form.php';
     }
 
     /**

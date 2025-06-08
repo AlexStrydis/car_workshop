@@ -3,10 +3,13 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
-  <title>Cars (Page <?= htmlspecialchars($page) ?> of <?= htmlspecialchars($totalPages) ?>)</title>
+  <title>Τα Αυτοκίνητά μου (Σελίδα <?= htmlspecialchars($page) ?> από <?= htmlspecialchars($totalPages) ?>)</title>
 </head>
 <body>
-  <h1>Cars</h1>
+<?php include __DIR__ . '/../public/inc/header.php'; ?>
+<section class="hero-background">
+  <div class="container" style="background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+  <h1>Τα Αυτοκίνητά μου</h1>
 
   <!-- Εμφάνιση μηνυμάτων επιτυχίας/σφάλματος -->
   <?php if (!empty($_SESSION['success'])): ?>
@@ -20,8 +23,8 @@
   <?php endif; ?>
 
   <p>
-    <a href="create_car.php">New Car</a> |
-    <a href="dashboard.php">Dashboard</a>
+    <a href="create_car.php">Προσθήκη νέου αυτοκινήτου</a> |
+    <a href="dashboard.php">Επιστροφή στον Πίνακα Ελέγχου</a>
   </p>
 
   <!-- -------------------------- -->
@@ -126,5 +129,8 @@
     </div>
   <?php endif; ?>
 
+</div>
+</section>
+<?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>

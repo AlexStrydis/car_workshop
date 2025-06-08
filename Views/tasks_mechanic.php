@@ -6,6 +6,9 @@
   <title>Οι Εργασίες Μου</title>
 </head>
 <body>
+<?php include __DIR__ . '/../public/inc/header.php'; ?>
+<section class="hero-background">
+  <div class="container" style="background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
   <h1>Οι Εργασίες Μου</h1>
 
   <?php if (!empty($_SESSION['success'])): ?>
@@ -119,5 +122,8 @@
   <p class="back-link">
     <a href="dashboard.php">&larr; Επιστροφή στο Dashboard</a>
   </p>
+</div>
+</section>
+<?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>
