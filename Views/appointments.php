@@ -84,6 +84,7 @@
   </form>
   <br>
 
+  <div class="table-responsive">
   <table>
     <tr>
       <th>ID</th>
@@ -137,6 +138,7 @@
       </tr>
     <?php endforeach; ?>
   </table>
+  </div>
 
   <!-- ----------------------------- -->
   <!-- Σελίδωση (Pagination) αν χρειάζεται -->

@@ -58,6 +58,7 @@
   <!-- -------------------------- -->
   <!-- Πίνακας με τα Cars -->
   <!-- -------------------------- -->
+  <div class="table-responsive">
   <table>
     <tr>
       <th>Serial</th>
@@ -104,6 +105,7 @@
       <?php endforeach; ?>
     <?php endif; ?>
   </table>
+  </div>
 
   <!-- -------------------------- -->
   <!-- Pagination Links -->
