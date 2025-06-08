@@ -30,4 +30,3 @@ if ($role === 'customer') {
 }
 
 include $viewFile;
-

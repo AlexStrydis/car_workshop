@@ -212,6 +212,7 @@ class CarController {
         } else {
             $owners = [];
         }
+
         include __DIR__ . '/../../Views/car_form.php';
     }
 
