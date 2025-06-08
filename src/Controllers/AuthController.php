@@ -151,13 +151,8 @@ class AuthController {
             }
         }
 
-        // Check for duplicate tax_id
-        $sql = "SELECT COUNT(*) FROM customer WHERE tax_id = :tax_id";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([':tax_id' => $_POST['tax_id']]);
-        if ($stmt->fetchColumn() > 0) {
-            $_SESSION['errors']['tax_id'] = 'Το Tax ID υπάρχει ήδη.';
-        }
+        // Το tax_id αφορά μόνο τους πελάτες. Αν ο ρόλος είναι μηχανικός,
+        // δεν γίνεται έλεγχος για ύπαρξη tax_id ώστε να αποφύγουμε PHP notices.
 
         // Redirect if errors exist
         if (!empty($_SESSION['errors'])) {
