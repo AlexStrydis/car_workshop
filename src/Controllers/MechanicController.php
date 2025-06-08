@@ -29,7 +29,7 @@ class MechanicController {
         $appts = $this->apptM->getForMechanic($mechanicId, $today);
 
         // Φέρνουμε όσες εργασίες έχουν completion_time την ίδια μέρα
-        $tasks = $this->taskM->getByMechanic($mechanicId, $today);
+        $tasksToday = $this->taskM->getByMechanic($mechanicId, $today);
 
         $token = generateCsrfToken();
         include __DIR__ . '/../../views/mechanic_dashboard.php';
