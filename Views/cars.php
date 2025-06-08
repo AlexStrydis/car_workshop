@@ -31,46 +31,47 @@
   <!-- Φόρμα φίλτρων (Search/Filter) -->
   <!-- -------------------------- -->
   <form method="get" action="cars.php">
-    <label>Serial:
+    <label>Σειριακός Αριθμός:
       <input
         type="text"
         name="serial"
         value="<?= htmlspecialchars($_GET['serial'] ?? '') ?>">
     </label>
     &nbsp;
-    <label>Model:
+    <label>Μοντέλο:
       <input
         type="text"
         name="model"
         value="<?= htmlspecialchars($_GET['model'] ?? '') ?>">
     </label>
     &nbsp;
-    <label>Brand:
+    <label>Μάρκα:
       <input
         type="text"
         name="brand"
         value="<?= htmlspecialchars($_GET['brand'] ?? '') ?>">
     </label>
     &nbsp;
-    <button type="submit">Search</button>
+    <button type="submit">Αναζήτηση</button>
   </form>
 
   <!-- -------------------------- -->
   <!-- Πίνακας με τα Cars -->
   <!-- -------------------------- -->
+  <div class="table-responsive">
   <table>
     <tr>
-      <th>Serial</th>
-      <th>Model</th>
-      <th>Brand</th>
-      <th>Type</th>
-      <th>Drive</th>
-      <th>Doors</th>
-      <th>Wheels</th>
-      <th>Prod Date</th>
-      <th>Year</th>
-      <th>Owner</th>
-      <th>Actions</th>
+      <th>Σειριακός Αριθμός</th>
+      <th>Μοντέλο</th>
+      <th>Μάρκα</th>
+      <th>Τύπος</th>
+      <th>Κίνηση</th>
+      <th>Πόρτες</th>
+      <th>Τροχοί</th>
+      <th>Ημερομηνία Παραγωγής</th>
+      <th>Έτος Απόκτησης</th>
+      <th>Ιδιοκτήτης</th>
+      <th>Ενέργειες</th>
     </tr>
     <?php if (empty($cars)): ?>
       <tr>
@@ -92,18 +93,19 @@
           <td><?= htmlspecialchars($c['acquisition_year']) ?></td>
           <td><?= htmlspecialchars($c['owner_name']) ?></td>
           <td>
-            <a href="edit_car.php?serial=<?= urlencode($c['serial_number']) ?>">Edit</a>
+            <a href="edit_car.php?serial=<?= urlencode($c['serial_number']) ?>">Επεξεργασία</a>
             &nbsp;
             <form method="post" action="delete_car.php" class="inline" onsubmit="return confirm('Delete this car?');">
               <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
               <input type="hidden" name="serial" value="<?= htmlspecialchars($c['serial_number']) ?>">
-              <button type="submit">Delete</button>
+              <button type="submit">Διαγραφή</button>
             </form>
           </td>
         </tr>
       <?php endforeach; ?>
     <?php endif; ?>
   </table>
+  </div>
 
   <!-- -------------------------- -->
   <!-- Pagination Links -->

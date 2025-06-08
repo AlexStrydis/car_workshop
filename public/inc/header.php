@@ -11,8 +11,17 @@ if (session_status() === PHP_SESSION_NONE) {
       <img src="images/logo.png" alt="Car Workshop Logo" style="max-height: 80px; width: auto;">
     </div>
     <nav class="site-nav" style="margin: 0 auto; display: flex; align-items: center; justify-content: flex-end;">
-      <?php if (!empty($_SESSION['user_id'])): ?>
-      <a href="dashboard.php">Πίνακας Ελέγχου</a>
+      <?php if (!empty($_SESSION['user_id'])):
+          $dash = 'dashboard.php';
+          if (!empty($_SESSION['role'])) {
+              if ($_SESSION['role'] === 'mechanic') {
+                  $dash = 'mechanic_dashboard.php';
+              } elseif ($_SESSION['role'] === 'customer') {
+                  $dash = 'customer_dashboard.php';
+              }
+          }
+      ?>
+      <a href="<?= $dash ?>">Πίνακας Ελέγχου</a>
       <?php endif; ?>
       <a href="index.php">Αρχική</a>
       <a href="about.php">Σχετικά</a>
