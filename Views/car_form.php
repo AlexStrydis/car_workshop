@@ -6,6 +6,9 @@
   <title><?= isset($car) ? 'Edit Car' : 'New Car' ?></title>
 </head>
 <body>
+<?php include __DIR__ . '/../public/inc/header.php'; ?>
+<section class="hero-background">
+  <div class="container" style="background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
   <p>
     <a href="cars.php">← Επιστροφή στη Λίστα Αυτοκινήτων</a>
   </p>
@@ -167,6 +170,29 @@
     </label>
     <br>
 
+    <?php if (!empty($owners)): ?>
+    <label>
+      Owner:
+      <select name="owner_id" required>
+        <option value="">-- Επιλέξτε --</option>
+        <?php foreach ($owners as $o): ?>
+          <option value="<?= (int)$o['user_id'] ?>"
+            <?= (
+                  (isset($_SESSION['old_car']['owner_id']) && $_SESSION['old_car']['owner_id'] == $o['user_id']) ||
+                  (isset($car) && $car['owner_id'] == $o['user_id'])
+               ) ? 'selected' : '' ?>>
+            <?= htmlspecialchars($o['last_name'].' '.$o['first_name']) ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+    </label>
+    <br>
+    <?php else: ?>
+      <input type="hidden" name="owner_id" value="<?= (int)(
+          $_SESSION['old_car']['owner_id'] ?? ($car['owner_id'] ?? $_SESSION['user_id'])
+      ) ?>">
+    <?php endif; ?>
+
     <button type="submit"><?= isset($car) ? 'Update Car' : 'Create Car' ?></button>
     &nbsp;<a href="cars.php">Cancel</a>
   </form>
@@ -218,5 +244,8 @@
     // Καθαρίζουμε το old_car data
     unset($_SESSION['old_car']);
   ?>
+</div>
+</section>
+<?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>

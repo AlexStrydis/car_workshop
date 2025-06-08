@@ -40,6 +40,6 @@ class CustomerController {
 
         $token = generateCsrfToken();
         $pdo = $this->pdo;
-        include __DIR__ . '/../../views/customer_dashboard.php';
+        include __DIR__ . '/../../Views/customer_dashboard.php';
     }
 }

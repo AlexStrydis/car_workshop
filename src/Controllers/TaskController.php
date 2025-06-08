@@ -48,7 +48,7 @@ class TaskController {
         $appts = $this->apptModel->search($criteria);
 
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/tasks_mechanic.php';
+        include __DIR__ . '/../../Views/tasks_mechanic.php';
     }
 
     /**
@@ -72,7 +72,7 @@ class TaskController {
         $appts = $this->apptModel->search($criteria);
 
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/task_form.php';
+        include __DIR__ . '/../../Views/task_form.php';
     }
 
     /**
@@ -175,7 +175,7 @@ class TaskController {
         $appts = $this->apptModel->search($criteria);
 
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/task_form.php';
+        include __DIR__ . '/../../Views/task_form.php';
     }
 
     /**

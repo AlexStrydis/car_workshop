@@ -172,6 +172,10 @@ class User {
             $sql .= " AND identity_number = :identity_number";
             $params[':identity_number'] = $criteria['identity_number'];
         }
+        if (isset($criteria['is_active'])) {
+            $sql .= " AND is_active = :is_active";
+            $params[':is_active'] = $criteria['is_active'];
+        }
 
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($params);
