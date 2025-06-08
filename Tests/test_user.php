@@ -6,20 +6,33 @@ use Models\User;
 
 header('Content-Type: text/plain; charset=utf-8');
 
-// 1) Σύνδεση & instantiation
-$userModel = new User($pdo);
+$pdo->beginTransaction();
 
-// 2) Δημιουργία demo χρήστη
-$newId = $userModel->create([
-    'username'        => 'demo_user',
-    'password'        => 'pass1234',
-    'first_name'      => 'Alex',
-    'last_name'       => 'Student',
-    'identity_number' => 'ID123456',
-    'role'            => 'customer'
-]);
-echo "Created user ID: $newId\n";
+try {
+    // 1) Σύνδεση & instantiation
+    $userModel = new User($pdo);
 
-// 3) Ανάκτηση & print
-$user = $userModel->findById($newId);
-print_r($user);
+    // 2) Δημιουργία demo χρήστη
+    $newId = $userModel->create([
+        'username'        => 'demo_user',
+        'password'        => 'pass1234',
+        'first_name'      => 'Alex',
+        'last_name'       => 'Student',
+        'identity_number' => 'ID123456',
+        'role'            => 'customer'
+    ]);
+    echo "Created user ID: $newId\n";
+
+    // 3) Ανάκτηση & print
+    $user = $userModel->findById($newId);
+    print_r($user);
+
+    // Assertions
+    assert($user !== null, 'User retrieval failed');
+    assert($user['username'] === 'demo_user', 'Username mismatch');
+
+    $pdo->rollBack();
+} catch (\Exception $e) {
+    $pdo->rollBack();
+    echo 'Error: ' . $e->getMessage();
+}
