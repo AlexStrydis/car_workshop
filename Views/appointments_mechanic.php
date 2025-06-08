@@ -4,6 +4,9 @@
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8"><title>Τα Ραντεβού μου</title></head>
 <body>
+<?php include __DIR__ . '/../public/inc/header.php'; ?>
+<section class="hero-background">
+  <div class="container" style="background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
   <h1>Ραντεβού Μηχανικού</h1>
 
   <?php if(!empty($_SESSION['success'])): ?>
@@ -52,5 +55,8 @@
   </table>
 
   <p><a href="dashboard.php">Επιστροφή</a></p>
+</div>
+</section>
+<?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>
