@@ -50,7 +50,7 @@ body::after  { right: 0; }
 
 /* Βασικό κεντραρισμένο πλαίσιο για όλες τις σελίδες με περιεχόμενο */
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 10px auto;       /* Δημιουργεί κενό πάνω/κάτω + κεντράρει οριζόντια */
   padding: 30px 25px;
   background-color: #333333; /* Ελαφρώς ανοιχτότερο από τη “κουρτίνα” */
@@ -302,10 +302,6 @@ tr:nth-child(odd) {
   background-color: #2e2e2e;
 }
 
-.table-responsive {
-  overflow-x: auto;
-}
-
 /*========================================
 =               Utility CSS              =
 ========================================*/
@@ -436,7 +432,7 @@ tr:nth-child(odd) {
     max-width: none;
     box-sizing: border-box;
   }
-  table, .table-responsive {
+  table {
     font-size: 0.9rem;
   }
   .page-header {
