@@ -72,7 +72,7 @@ class AppointmentController {
 
         $token = generateCsrfToken();
 
-        include __DIR__ . '/../../views/appointments.php';
+        include __DIR__ . '/../../Views/appointments.php';
     }
 
     // ------------------------------------------------------------
@@ -105,7 +105,7 @@ class AppointmentController {
             );
         }
 
-        include __DIR__ . '/../../views/appointment_form.php';
+        include __DIR__ . '/../../Views/appointment_form.php';
     }
 
     // ------------------------------------------------------------
@@ -254,7 +254,7 @@ class AppointmentController {
         }
 
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/appointment_form.php';
+        include __DIR__ . '/../../Views/appointment_form.php';
     }
 
     // ------------------------------------------------------------
@@ -410,7 +410,7 @@ class AppointmentController {
 
         $appts = $this->m->getForMechanic($mechanicId, $filterDate);
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/appointments_mechanic.php';
+        include __DIR__ . '/../../Views/appointments_mechanic.php';
     }
 
     // ------------------------------------------------------------

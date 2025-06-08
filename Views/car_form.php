@@ -6,6 +6,9 @@
   <title><?= isset($car) ? 'Edit Car' : 'New Car' ?></title>
 </head>
 <body>
+<?php include __DIR__ . '/../public/inc/header.php'; ?>
+<section class="hero-background">
+  <div class="container" style="background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
   <p>
     <a href="cars.php">← Επιστροφή στη Λίστα Αυτοκινήτων</a>
   </p>
@@ -218,5 +221,8 @@
     // Καθαρίζουμε το old_car data
     unset($_SESSION['old_car']);
   ?>
+</div>
+</section>
+<?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>
