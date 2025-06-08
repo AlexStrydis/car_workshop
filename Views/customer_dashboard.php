@@ -22,8 +22,6 @@
   $user = $userModel->findById((int)$_SESSION['user_id']);
   $username = $user ? $user['first_name'] . ' ' . $user['last_name'] : 'Χρήστης';
 
-  // Debugging message to confirm PHP execution
-  error_log('Customer dashboard loaded successfully. Username: ' . $username);
   ?>
   <header style="text-align: center; margin: 0; font-size: 1.5rem; color: #333;">
     <h1>Πίνακας ελέγχου του χρήστη <?php echo htmlspecialchars($username); ?></h1>
