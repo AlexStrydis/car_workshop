@@ -237,14 +237,7 @@ class AuthController {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role']    = $user['role'];
 
-        $dash = 'dashboard.php';
-        if ($user['role'] === 'mechanic') {
-            $dash = 'mechanic_dashboard.php';
-        } elseif ($user['role'] === 'customer') {
-            $dash = 'customer_dashboard.php';
-        }
-
-        header("Location: {$dash}");
+        header('Location: dashboard.php');
         exit;
     }
 

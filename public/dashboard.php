@@ -4,21 +4,29 @@ require __DIR__ . '/../config/db.php';
 
 requireLogin();
 
+// Καθαρίζουμε τυχόν success μήνυμα από προηγούμενη ενέργεια
+if (isset($_SESSION['success'])) {
+    unset($_SESSION['success']);
+}
+
 // Φόρτωση User model για να βρούμε το όνομα
 require_once __DIR__ . '/../src/Models/User.php';
 use Models\User;
 
 $userModel = new User($pdo);
 $user      = $userModel->findById((int)$_SESSION['user_id']);
-
-// Αν υπάρχει ο χρήστης, φτιάχνουμε το πλήρες όνομα, αλλιώς fallback στο username
-if ($user) {
-    $username = $user['first_name'] . ' ' . $user['last_name'];
-} else {
-    $username = $_SESSION['username'] ?? 'Χρήστης';
-}
+$username  = $user
+           ? $user['first_name'] . ' ' . $user['last_name']
+           : ($_SESSION['username'] ?? 'Χρήστης');
 
 $role = $_SESSION['role'];
 
-include __DIR__ . '/../Views/dashboard.php';
+// Επιλογή view ανά ρόλο, κρατώντας το ίδιο layout
+$viewFile = __DIR__ . '/../Views/dashboard.php';
+if ($role === 'customer') {
+    $viewFile = __DIR__ . '/../Views/customer_dashboard.php';
+} elseif ($role === 'mechanic') {
+    $viewFile = __DIR__ . '/../Views/mechanic_dashboard.php';
+}
 
+include $viewFile;
