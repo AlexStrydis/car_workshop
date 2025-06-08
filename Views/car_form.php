@@ -170,6 +170,29 @@
     </label>
     <br>
 
+    <?php if (!empty($owners)): ?>
+    <label>
+      Owner:
+      <select name="owner_id" required>
+        <option value="">-- Επιλέξτε --</option>
+        <?php foreach ($owners as $o): ?>
+          <option value="<?= (int)$o['user_id'] ?>"
+            <?= (
+                  (isset($_SESSION['old_car']['owner_id']) && $_SESSION['old_car']['owner_id'] == $o['user_id']) ||
+                  (isset($car) && $car['owner_id'] == $o['user_id'])
+               ) ? 'selected' : '' ?>>
+            <?= htmlspecialchars($o['last_name'].' '.$o['first_name']) ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+    </label>
+    <br>
+    <?php else: ?>
+      <input type="hidden" name="owner_id" value="<?= (int)(
+          $_SESSION['old_car']['owner_id'] ?? ($car['owner_id'] ?? $_SESSION['user_id'])
+      ) ?>">
+    <?php endif; ?>
+
     <button type="submit"><?= isset($car) ? 'Update Car' : 'Create Car' ?></button>
     &nbsp;<a href="cars.php">Cancel</a>
   </form>
