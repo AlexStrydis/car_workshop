@@ -3,10 +3,13 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
-  <title>Appointments</title>
+  <title>Ραντεβού</title>
 </head>
 <body>
-  <h1>Appointments</h1>
+<?php include __DIR__ . '/../public/inc/header.php'; ?>
+<section class="hero-background">
+  <div class="container" style="background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+  <h1>Ραντεβού</h1>
 
   <?php if (!empty($_SESSION['success'])): ?>
     <p style="color:green"><?= htmlspecialchars($_SESSION['success']) ?></p>
@@ -19,8 +22,8 @@
   <?php endif; ?>
 
   <p>
-    <a href="create_appointment.php">New Appointment</a> |
-    <a href="dashboard.php">Dashboard</a>
+    <a href="create_appointment.php">Νέο Ραντεβού</a> |
+    <a href="dashboard.php">Επιστροφή στον Πίνακα Ελέγχου</a>
   </p>
 
   <!-- ------------------------ -->
@@ -33,7 +36,7 @@
     $exportUrl = 'export_appointments.php' . ($qs ? '?' . htmlspecialchars($qs) : '');
   ?>
   <p>
-    <a href="<?= $exportUrl ?>">Export to CSV</a>
+    <a href="<?= $exportUrl ?>">Εξαγωγή σε CSV</a>
   </p>
 
   <!-- ------------------------ -->
@@ -81,7 +84,7 @@
   </form>
   <br>
 
-  <table border="1" cellpadding="5">
+  <table>
     <tr>
       <th>ID</th>
       <th>Date</th>
@@ -153,5 +156,8 @@
       <?php endfor; ?>
     </p>
   <?php endif; ?>
+</div>
+</section>
+<?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>

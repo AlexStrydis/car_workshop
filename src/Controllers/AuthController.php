@@ -30,7 +30,7 @@ class AuthController {
      */
     public function registerForm(): void {
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/register.php';
+        include __DIR__ . '/../../Views/register.php';
     }
 
     /**
@@ -206,7 +206,7 @@ class AuthController {
      */
     public function loginForm(): void {
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/login.php';
+        include __DIR__ . '/../../Views/login.php';
     }
 
     /**
@@ -236,6 +236,7 @@ class AuthController {
         session_regenerate_id(true);
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role']    = $user['role'];
+
         header('Location: dashboard.php');
         exit;
     }
